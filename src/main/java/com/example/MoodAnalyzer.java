@@ -5,14 +5,23 @@ public class MoodAnalyzer {
 
     public MoodAnalyzer() {
     }
+
     public MoodAnalyzer(String message) {
         this.message = message;
     }
-    public String analyzeMood(String message) {
-        if (message.contains("Sad")) {
-            return "SAD";
-        } else {
-            return "HAPPY";
+
+    public String analyzeMood() {
+        try {
+            // UC2: handle null message
+            if (this.message == null) {
+                throw new NullPointerException("Invlid Mood: message is null");
+            } else if (message.contains("Sad")) {
+                return "SAD";
+            } else {
+                return "HAPPY";
+            }
+        } catch (NullPointerException exception) {
+            return "HAPPY"; // return happy if null
         }
     }
 }
