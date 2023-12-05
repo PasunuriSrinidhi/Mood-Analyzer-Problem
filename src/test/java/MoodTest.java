@@ -17,4 +17,11 @@ public class MoodTest {
         MoodAnalyzer analyzer = new MoodAnalyzer();
         assertEquals("HAPPY", analyzer.analyzeMood("I am in Any Mood"));
     }
+
+    // TC 2.1: testing for null mood message
+    @Test
+    public void testNullMoodMessage() {
+        MoodAnalyzer analyzer = new MoodAnalyzer(null);
+        assertEquals("HAPPY", analyzer.analyzeMood());
+    }
 }
